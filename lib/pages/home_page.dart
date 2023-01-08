@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:medical/util/category_card.dart';
+import 'package:medical/util/doctor_card.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -68,7 +70,8 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       height: 100,
                       width: 100,
-                      color: Colors.deepPurple[200],
+                      child:
+                      Lottie.asset('lib/images/animation.zip'),
                     ),
                     SizedBox(
                       width: 20,
@@ -171,8 +174,10 @@ class _HomePageState extends State<HomePage> {
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
                   Text("See all",
-                      style:
-                          TextStyle(fontSize:16, color: Colors.grey[600], fontWeight: FontWeight.bold))
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey[600],
+                          fontWeight: FontWeight.bold))
                 ],
               ),
             ),
@@ -180,18 +185,13 @@ class _HomePageState extends State<HomePage> {
               height: 25,
             ),
 
-            Container(
-              child: Column(
-                children: [
-                  //picture of the doctor
-                  // rating
-
-                  //doctor name
-
-                  //doctor title
-                ],
+            Expanded(
+                child: Container(
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [DoctorCard(), DoctorCard()],
               ),
-            )
+            ))
           ],
         ),
       ),
